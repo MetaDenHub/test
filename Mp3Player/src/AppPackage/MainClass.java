@@ -1,3 +1,6 @@
+/*
+ * realization functions of mp3 player: text, start, stop, pause
+ * */
 package AppPackage;
 
 import java.io.BufferedInputStream;
@@ -23,6 +26,8 @@ public class MainClass {
 			player.close();
 			pauseLocation = 0;
 			songtotalLength = 0; 
+			
+			MP3PlayerGUI.lblNewLabel.setText(""); // cleaning the Label on "Stop" 
 		}
 	}
 	
@@ -72,6 +77,10 @@ public class MainClass {
 		public void run(){
 			try {
 				player.play();
+				
+				if(player.isComplete() && MP3PlayerGUI.count == 1){
+					Play("FileLocation");
+				}
 			}
 			catch (JavaLayerException ex) {
 				

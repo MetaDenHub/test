@@ -23,7 +23,10 @@ import java.awt.Font;
 
 public class MP3PlayerGUI {
 
+	public static int count;
 	private JFrame frame;
+	private JButton btnStop;
+	static JLabel lblNewLabel;
 
 	/**
 	 * Launch the application.
@@ -73,7 +76,7 @@ public class MP3PlayerGUI {
 			
 		});
 		
-		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel = new JLabel("");
 		lblNewLabel.setFont(new Font("Comic Sans MS", Font.BOLD | Font.ITALIC, 15));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.gridwidth = 4;
@@ -99,7 +102,7 @@ public class MP3PlayerGUI {
 		gbc_btnPause.gridy = 2;
 		frame.getContentPane().add(btnPause, gbc_btnPause);
 		
-		JButton btnStop = new JButton("Stop");
+		btnStop = new JButton("Stop");
 		btnStop.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				MC.Stop();
@@ -136,6 +139,34 @@ public class MP3PlayerGUI {
 		gbc_btnSelectFile.gridx = 3;
 		gbc_btnSelectFile.gridy = 2;
 		frame.getContentPane().add(btnSelectFile, gbc_btnSelectFile);
+		
+		JButton btnForever = new JButton("Forever");
+		btnForever.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				switch(count)
+				{
+					case 0:
+						count = 1;
+						System.out.println(count);
+						break;
+					case 1:
+						count = 0;
+						System.out.println(count);
+						break;
+				}
+			}
+		});
+		GridBagConstraints gbc_btnForever = new GridBagConstraints();
+		gbc_btnForever.insets = new Insets(0, 0, 0, 5);
+		gbc_btnForever.gridx = 0;
+		gbc_btnForever.gridy = 3;
+		frame.getContentPane().add(btnForever, gbc_btnForever);
 	}
 
+	public JButton getBtnStop() {
+		return btnStop;
+	}
+	public static JLabel getLblNewLabel() {
+		return lblNewLabel;
+	}
 }
