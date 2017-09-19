@@ -1,6 +1,5 @@
 package AppPackage;
 
-import java.awt.DisplayMode;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,11 +12,8 @@ import javax.swing.JFileChooser;
 import java.awt.GridBagConstraints;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileFilter;
 import java.awt.event.ActionEvent;
 import java.awt.Insets;
-import java.awt.Label;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 
